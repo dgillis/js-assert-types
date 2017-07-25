@@ -1,0 +1,16 @@
+{
+  "name": "types",
+  "description": "",
+  "version": "0.1.1",
+  "homepage": "",
+  "files": [
+    "types.js"
+  ],
+  "main": "types.js",
+  "dependencies": {
+  },
+  "dependenciesDev": {
+    "lodash": ">=3.0.0"
+  },
+  "directories": {}
+}
