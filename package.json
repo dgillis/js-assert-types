@@ -8,10 +8,8 @@
   ],
   "main": "types.js",
   "dependencies": {
-    "lodash": ">=3.0.0 <4.0.0"
   },
   "devDependencies": {
-    "lodash": ">=3.0.0 <4.0.0"
   },
   "directories": {}
 }
