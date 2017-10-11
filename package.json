@@ -4,9 +4,9 @@
   "version": "0.1.1",
   "homepage": "",
   "files": [
-    "types.js"
+    "src/index.js"
   ],
-  "main": "types.js",
+  "main": "src/index.js",
   "dependencies": {
   },
   "devDependencies": {
