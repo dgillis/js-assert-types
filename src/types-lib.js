@@ -571,9 +571,32 @@ var Lib = {
         return func;
     },
 
-    makeTypeFuncForTestFunc(typeName) {
+    makeTypeFuncForTestFunc: function(typeName) {
         var testFunc = TypeTests[typeName];
         return Lib.makeTypeFunc(typeName, testFunc);
+    },
+    arrLikeHelper: function(arrTypeName, args, options) {
+        var fail, allArgs;
+
+        if (options == null) {
+            options = {arrayLike: true};
+        } else {
+            fail = TypeTests.object(options);
+
+            if (fail) {
+                return fail;
+            }
+
+            if (_.has(options, 'arrayLike')) {
+                return ["arrayLike type-functions cannot specify the",
+                        "'arrayLike' option"];
+            }
+
+            options = _.extend({}, options, {arrayLike: true});
+        }
+
+        allArgs = _.toArray(args).concat([options]);
+        return TypeTests[arrTypeName].apply(null, allArgs);
     }
 };
 

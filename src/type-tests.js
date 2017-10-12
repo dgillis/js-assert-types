@@ -230,16 +230,16 @@ var TypeTests = {
                 TypeTests.nonEmpty(value));
     },
     arrLike: function(value, options) {
-        return arrLikeHelper('arr', [value], options);
+        return Lib.arrLikeHelper('arr', [value], options);
     },
     arrLikeOf: function(value, typeName, options) {
-        return arrLikeHelper('arrOf', [value, typeName], options);
+        return Lib.arrLikeHelper('arrOf', [value, typeName], options);
     },
     nonEmptyArrLike: function(value, options) {
-        return arrLikeHelper('nonEmptyArr', [value], options);
+        return Lib.arrLikeHelper('nonEmptyArr', [value], options);
     },
     nonEmptyArrLikeOf: function(value, typeName, options) {
-        return arrLikeHelper('nonEmptyArrOf', [value, typeName], options);
+        return Lib.arrLikeHelper('nonEmptyArrOf', [value, typeName], options);
     },
     inArrayIndexes: function(index, arrayLike) {
         var fail = TypeTests.arrLike(arrayLike) || TypeTests.nonNegInt(index);
