@@ -6,10 +6,11 @@
   "files": [
     "src/index.js"
   ],
+  "scripts": {
+  },
   "main": "src/index.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-  },
-  "directories": {}
+    "lodash": ">=3.0.0 <4.0.0"
+  }
 }
