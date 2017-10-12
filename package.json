@@ -1,16 +1,25 @@
 {
-  "name": "types",
-  "description": "",
-  "version": "0.1.1",
-  "homepage": "",
-  "files": [
-    "src/index.js"
+  "name": "assert-types",
+  "version": "0.0.1",
+  "description": "assert-types",
+  "keywords": [
+    "test",
+    "assert",
+    "typing"
   ],
+  "license": "MIT",
+  "author": "Duncan Gillis <d@duncangillis.com>",
+  "files": [
+    "src/index.js",
+    "src/types-lib.js",
+    "src/type-tests.js",
+    "src/test.js"
+  ],
+  "repository": "https://github.com/dgillis/js-assert-types",
   "scripts": {
   },
   "main": "src/index.js",
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "lodash": ">=3.0.0 <4.0.0"
   }
 }

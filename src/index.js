@@ -1,3 +1,8 @@
+/* !
+ * assert-types
+ * Copyright(c) 2017 Duncan Gillis <d@duncangillis.com>
+ * MIT Licensed
+ */
 var Lib = (process.env.NODE_ENV === 'production') ? null : require('./types-lib');
 
 var TypeNamesArray = [
@@ -14,7 +19,7 @@ var TypeNamesArray = [
 
 var Identity = function(x) { return x; };
 
-var Types = function(typeName, value) {
+var AssertTypes = function(typeName, value) {
     if (process.env.NODE_ENV !== 'production') {
         var err = Lib.getErrorForTypesFunction.apply(null, arguments);
         if (err) { throw err; }
@@ -24,8 +29,8 @@ var Types = function(typeName, value) {
 
 for (var i = 0, len = TypeNamesArray.length; i < len; i++) {
     var name = TypeNamesArray[i];
-    Types[name] = (process.env.NODE_ENV === 'production') ?
+    AssertTypes[name] = (process.env.NODE_ENV === 'production') ?
             Identity : Lib.makeTypeFuncForTestFunc(name);
 }
 
-module.exports = Types;
+module.exports = AssertTypes;

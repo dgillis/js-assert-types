@@ -1,3 +1,8 @@
+/* !
+ * assert-types
+ * Copyright(c) 2017 Duncan Gillis <d@duncangillis.com>
+ * MIT Licensed
+ */
 var _ = require('lodash'),
     TypeTests = require('./type-tests'),
     EXC_PREFIX = '[types.js]';
