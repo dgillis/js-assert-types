@@ -42,4 +42,4 @@ and, if so, return value. Otherwise, throw an Error describing what went wrong.
 
 In production environments, immediately return value without any type checking.
 
-The full list of available types can be viewed [here](https://github.com/dgillis/js-assert-types/src/type-tests.js).
+The full list of available types can be viewed [here](https://github.com/dgillis/js-assert-types/blob/master/src/type-tests.js).
