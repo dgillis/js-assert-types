@@ -1,6 +1,6 @@
 {
-  "name": "assert-types",
-  "version": "0.0.1",
+  "name": "@dgillis/assert-types",
+  "version": "0.0.2",
   "description": "assert-types",
   "keywords": [
     "test",
@@ -19,7 +19,7 @@
   "scripts": {
   },
   "main": "src/index.js",
-  "dependencies": {
+  "devDependencies": {
     "lodash": ">=3.0.0 <4.0.0"
   }
 }
