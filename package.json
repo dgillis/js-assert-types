@@ -1,7 +1,7 @@
 {
-  "name": "@dgillis/assert-types",
+  "name": "js-assert-types",
   "version": "0.0.2",
-  "description": "assert-types",
+  "description": "js-assert-types",
   "keywords": [
     "test",
     "assert",
