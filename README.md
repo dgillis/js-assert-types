@@ -7,13 +7,13 @@ A way to perform type assertions with detailed error messages in development but
 With [npm](http://npmjs.org) do:
 
 ```sh
-npm install @dgillis/assert-types
+npm install js-assert-types
 ```
 
 ## Examples
 
 ```js
-var t = require('@dgillis/assert-types');
+var t = require('js-assert-types');
 
 // Basic types.
 t.num(123);  // Returns 123.
