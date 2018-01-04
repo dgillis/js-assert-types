@@ -27,6 +27,12 @@ var AssertTypes = function(typeName, value) {
     return value;
 };
 
+AssertTypes._configure = function(name, value) {
+    if (process.env.NODE_ENV !== 'production') {
+        Lib.ConfigSettings[name] = value;
+    }
+};
+
 for (var i = 0, len = TypeNamesArray.length; i < len; i++) {
     var name = TypeNamesArray[i];
     AssertTypes[name] = (process.env.NODE_ENV === 'production') ?

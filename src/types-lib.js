@@ -9,6 +9,11 @@ var _ = require('lodash'),
 
 
 var Lib = {
+    ConfigSettings: {
+        errorHandler: null,
+        debugOnError: false
+    },
+
     getErrorForTypesFunction(typeName, value) {
         var typeArgs = _.slice(arguments, 2),
             ref, fail, error
@@ -545,7 +550,9 @@ var Lib = {
 
         func = function TypesFunc(value) {
             var testArgs = [value],
-                fail;
+                errorHandler = Lib.ConfigSettings.errorHandler,
+                debugOnError = Lib.ConfigSettings.debugOnError,
+                fail, err;
 
             if (partialArgs) {
                 testArgs.push.apply(testArgs, partialArgs);
@@ -558,7 +565,12 @@ var Lib = {
             fail = failFunc.apply(null, testArgs);
 
             if (fail) {
-                throw new Error(Lib.makeErr(typeName, arguments, fail));
+                err = Lib.makeErr(typeName, arguments, fail);
+                if (debugOnError) {debugger;}
+                // If the errorHandler is defined and returns false, then error handling
+                // behaviour is presumed to be handled by that function.
+                if (errorHandler && errorHandler(err) === false) { return value; }
+                throw new Error(err);
             }
 
             return value;
