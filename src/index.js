@@ -19,24 +19,37 @@ var TypeNamesArray = [
 
 var Identity = function(x) { return x; };
 
-var AssertTypes = function(typeName, value) {
-    if (process.env.NODE_ENV !== 'production') {
-        var err = Lib.getErrorForTypesFunction.apply(null, arguments);
-        if (err) { throw err; }
-    }
-    return value;
-};
+function initJsAssertTypes(forceProduction) {
+    var AssertTypes = function(typeName, value) {
+        if (process.env.NODE_ENV !== 'production' && !forceProduction) {
+            var err = Lib.getErrorForTypesFunction.apply(null, arguments);
+            if (err && Lib.ConfigSettings.debugOnError) {debugger;}
+            if (err) { throw err; }
+        }
+        return value;
+    };
 
-AssertTypes._configure = function(name, value) {
-    if (process.env.NODE_ENV !== 'production') {
-        Lib.ConfigSettings[name] = value;
-    }
-};
+    AssertTypes._configure = function(name, value) {
+        if (process.env.NODE_ENV !== 'production' && !forceProduction) {
+            Lib.ConfigSettings[name] = value;
+        }
+    };
 
-for (var i = 0, len = TypeNamesArray.length; i < len; i++) {
-    var name = TypeNamesArray[i];
-    AssertTypes[name] = (process.env.NODE_ENV === 'production') ?
-            Identity : Lib.makeTypeFuncForTestFunc(name);
+    for (var i = 0, len = TypeNamesArray.length; i < len; i++) {
+        var name = TypeNamesArray[i];
+        AssertTypes[name] = (process.env.NODE_ENV === 'production' || forceProduction) ?
+                Identity : Lib.makeTypeFuncForTestFunc(name);
+    }
+
+    return AssertTypes;
 }
 
-module.exports = AssertTypes;
+
+var AssertTypes = initJsAssertTypes();
+
+var ProductionVersion = (process.env.NODE_ENV === 'production') ?
+        AssertTypes : initJsAssertTypes(true);
+
+
+export {ProductionVersion};
+export default AssertTypes;
