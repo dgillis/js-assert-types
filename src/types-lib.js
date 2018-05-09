@@ -14,7 +14,7 @@ var Lib = {
         debugOnError: false
     },
 
-    getErrorForTypesFunction(typeName, value) {
+    getErrorForTypesFunction: function(typeName, value) {
         var typeArgs = _.slice(arguments, 2),
             ref, fail, error
 
