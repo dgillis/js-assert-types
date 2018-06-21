@@ -50,6 +50,6 @@ var AssertTypes = initJsAssertTypes();
 var ProductionAssertTypes = (process.env.NODE_ENV === 'production') ?
         AssertTypes : initJsAssertTypes(true);
 
-
-export {ProductionAssertTypes as Production};
-export default AssertTypes;
+module.exports = AssertTypes;
+AssertTypes.Production = (process.env.NODE_ENV === 'production') ?
+        AssertTypes : initJsAssertTypes(true);
